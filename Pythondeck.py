@@ -5,6 +5,7 @@ import pyautogui
 import webbrowser
 import win32console
 import win32gui
+from subprocess import call
 # from subprocess import call me cuelga al abrir aplicaciones
 
 '''Ocultar ventana'''
@@ -13,15 +14,10 @@ win32gui.ShowWindow(ventana,0)
 
 '''Detección de puerto'''
 Puerto = serial.tools.list_ports.comports()
-try:
-    if 'CH340' in str(Puerto[1]):
-        dispositivo = str(Puerto[1])
-        port = dispositivo[0:4]
-except:('list index out of range')
 
-if 'CH340' in str(Puerto[0]):
-    dispositivo = str(Puerto[0])
-    port = dispositivo[0:4]
+for ports in Puerto:
+    if 'CH340' in str(ports):
+        port = str(ports)[0:4]
 
 '''Conexión serial'''
 Pythondeck = serial.Serial(port, 9600)
@@ -94,7 +90,7 @@ def edicion():
         pyautogui.write('C:/Program Files/Blackmagic Design/DaVinci Resolve/Resolve.exe')
         pyautogui.hotkey('enter')
     if('Edicion,BtnG' in deck):
-        pyautogui.hotkey('f13')
+        webbrowser.open('https://www.ilovepdf.com/es')
     if('Edicion,BtnH' in deck):
         pyautogui.hotkey('f14')
     if('Edicion,BtnI' in deck):
@@ -192,9 +188,7 @@ def redes():
     if('Redes,BtnI' in deck):
         webbrowser.open('https://plataforma.coderhouse.com/ingresar')
     if('Redes,btnJ' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('C:/Users/golal/AppData/Roaming/Zoom/bin/Zoom.exe')
-        pyautogui.hotkey('enter')
+        webbrowser.open('https://github.com/')
     if('Redes,but' in deck):
         pyautogui.hotkey('volumemute')
     if('Redes,izq' in deck):
