@@ -5,7 +5,7 @@ import pyautogui
 import webbrowser
 import win32console
 import win32gui
-from subprocess import call
+
 # from subprocess import call me cuelga al abrir aplicaciones
 
 '''Ocultar ventana'''
