@@ -6,31 +6,31 @@ import webbrowser
 import win32console
 import win32gui
 
-# from subprocess import call me cuelga al abrir aplicaciones
-
-'''Ocultar ventana'''
+#Oculta el shell de pytho al abrir el script
 ventana = win32console.GetConsoleWindow()
 win32gui.ShowWindow(ventana,0)
 
-'''Detección de puerto'''
+# Detección de puerto
 Puerto = serial.tools.list_ports.comports()
 
 for ports in Puerto:
     if 'CH340' in str(ports):
         port = str(ports)[0:4]
 
-'''Conexión serial'''
+#Conexión serial
 Pythondeck = serial.Serial(port, 9600)
 time.sleep(1)
 
-'''Funciones para el menú'''
+#Funciones para el menú
 def escritorio():
     if('Escritorio,BtnA' in deck):
         webbrowser.open('firefox')
     if('Escritorio,BtnB' in deck):
         pyautogui.hotkey('alt', 'r')
     if('Escritorio,BtnC' in deck):
-        pyautogui.hotkey('win', 'shift', 's')
+        pyautogui.hotkey('win', 'r')
+        pyautogui.write('C:/Users/golal/AppData/Local/Programs/Microsoft VS Code/Code.exe')
+        pyautogui.hotkey('enter')
     if('Escritorio,BtnD' in deck):
         pyautogui.hotkey('win', 'r')
         pyautogui.write('C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe')
@@ -52,7 +52,9 @@ def escritorio():
         pyautogui.write('"D:/Riot Games/Riot Client/RiotClientServices.exe" --launch-product=league_of_legends --launch-patchline=live')
         pyautogui.hotkey('enter')
     if('Escritorio,BtnI' in deck):
-        webbrowser.open('chrome')
+        pyautogui.hotkey('win', 'r')
+        pyautogui.write('C:/Program Files/MySQL/MySQL Workbench 8.0/MySQLWorkbench.exe')
+        pyautogui.hotkey('enter')
     if('Escritorio,btnJ' in deck):
         pyautogui.hotkey('win', 'r')
         pyautogui.write('Notepad')
@@ -92,7 +94,9 @@ def edicion():
     if('Edicion,BtnG' in deck):
         webbrowser.open('https://www.ilovepdf.com/es')
     if('Edicion,BtnH' in deck):
-        pyautogui.hotkey('f14')
+        pyautogui.hotkey('win', 'r')
+        pyautogui.write('D:/LDL/LDPlayer/LDPlayer4.0/dnplayer.exe')
+        pyautogui.hotkey('enter')
     if('Edicion,BtnI' in deck):
         pyautogui.hotkey('f15')
     if('Edicion,btnJ' in deck):
@@ -188,7 +192,7 @@ def redes():
     if('Redes,BtnI' in deck):
         webbrowser.open('https://plataforma.coderhouse.com/ingresar')
     if('Redes,btnJ' in deck):
-        webbrowser.open('https://github.com/')
+        webbrowser.open('https://github.com/gonzaz92')
     if('Redes,but' in deck):
         pyautogui.hotkey('volumemute')
     if('Redes,izq' in deck):
