@@ -5,6 +5,8 @@ import pyautogui
 import webbrowser
 import win32console
 import win32gui
+from subprocess import Popen
+from os import startfile
 
 #Oculta el shell de pytho al abrir el script
 ventana = win32console.GetConsoleWindow()
@@ -28,37 +30,21 @@ def escritorio():
     if('Escritorio,BtnB' in deck):
         pyautogui.hotkey('alt', 'r')
     if('Escritorio,BtnC' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('C:/Users/golal/AppData/Local/Programs/Microsoft VS Code/Code.exe')
-        pyautogui.hotkey('enter')
+        Popen('C:/Users/golal/AppData/Local/Programs/Microsoft VS Code/Code.exe')
     if('Escritorio,BtnD' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe')
-        pyautogui.hotkey('enter')
+        Popen('C:/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32/EpicGamesLauncher.exe')
     if('Escritorio,BtnE' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('C:/Program Files (x86)/Steam/steam.exe')
-        pyautogui.hotkey('enter')
+        Popen('C:/Program Files (x86)/Steam/steam.exe')
     if('Escritorio,BtnF' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('C:/Users/golal/AppData/Local/Amazon Games/App/Amazon Games.exe')
-        pyautogui.hotkey('enter')
+        Popen('C:/Users/golal/AppData/Local/Amazon Games/App/Amazon Games.exe')
     if('Escritorio,BtnG' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('soffice')
-        pyautogui.hotkey('enter')
+        Popen('C:/Program Files/LibreOffice/program/soffice.exe')
     if('Escritorio,BtnH' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('"D:/Riot Games/Riot Client/RiotClientServices.exe" --launch-product=league_of_legends --launch-patchline=live')
-        pyautogui.hotkey('enter')
+        Popen('"D:/Riot Games/Riot Client/RiotClientServices.exe" --launch-product=league_of_legends --launch-patchline=live')
     if('Escritorio,BtnI' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('C:/Program Files/MySQL/MySQL Workbench 8.0/MySQLWorkbench.exe')
-        pyautogui.hotkey('enter')
+        Popen('C:/Program Files/MySQL/MySQL Workbench 8.0/MySQLWorkbench.exe')
     if('Escritorio,btnJ' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('Notepad')
-        pyautogui.hotkey('enter')
+        Popen('Notepad.exe')
     if('Escritorio,but' in deck):
         pyautogui.hotkey('volumemute')
     if('Escritorio,izq' in deck):
@@ -68,35 +54,21 @@ def escritorio():
 
 def edicion():
     if('Edicion,BtnA' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('Photoshop')
-        pyautogui.hotkey('enter')
+        Popen('C:/Program Files/GIMP 2/bin/gimp-2.10.exe')
     if('Edicion,BtnB' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('"Adobe Premiere Pro"')
-        pyautogui.hotkey('enter')
+        Popen('C:/Program Files/Blackmagic Design/DaVinci Resolve/Resolve.exe')
     if('Edicion,BtnC' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('"Adobe Audition"')
-        pyautogui.hotkey('enter')
+        Popen('C:/Program Files/REAPER (x64)/reaper.exe')
     if('Edicion,BtnD' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('Illustrator')
-        pyautogui.hotkey('enter')
+        Popen('C:/Program Files/Inkscape/bin/inkscape.exe')
     if('Edicion,BtnE' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('AfterFX')
-        pyautogui.hotkey('enter')
+        Popen('C:/Program Files/darktable/bin/darktable.exe')
     if('Edicion,BtnF' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('C:/Program Files/Blackmagic Design/DaVinci Resolve/Resolve.exe')
-        pyautogui.hotkey('enter')
+        Popen('C:/Program Files/Krita (x64)/bin/krita.exe')
     if('Edicion,BtnG' in deck):
         webbrowser.open('https://www.ilovepdf.com/es')
     if('Edicion,BtnH' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('D:/LDL/LDPlayer/LDPlayer4.0/dnplayer.exe')
-        pyautogui.hotkey('enter')
+        Popen('F:/LDPlayer/LDPlayer9/dnplayer.exe')
     if('Edicion,BtnI' in deck):
         pyautogui.hotkey('f15')
     if('Edicion,btnJ' in deck):
@@ -128,9 +100,7 @@ def obs():
     if('OBS,BtnI' in deck):
         pyautogui.hotkey('f21')
     if('OBS,btnJ' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('C:/Program Files/obs-studio/bin/64bit/obs64.exe')
-        pyautogui.hotkey('enter')
+        startfile('C:/Aplicaciones store/OBS Studio.lnk')
     if('OBS,but' in deck):
         pyautogui.hotkey('f22')
     if('OBS,izq' in deck):
@@ -144,7 +114,7 @@ def streaming():
     if('Streaming,BtnB' in deck):
         webbrowser.open('https://www.primevideo.com/')
     if('Streaming,BtnC' in deck):
-        webbrowser.open('https://play.hbomax.com/page/urn:hbo:page:home')
+        webbrowser.open('https://play.max.com/')
     if('Streaming,BtnD' in deck):
         webbrowser.open('https://www.crunchyroll.com/es')
     if('Streaming,BtnE' in deck):
@@ -172,9 +142,7 @@ def redes():
     if('Redes,BtnB' in deck):
         webbrowser.open('https://www.facebook.com/')
     if('Redes,BtnC' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('C:/Users/golal/AppData/Local/Discord/Update.exe --processStart Discord.exe')
-        pyautogui.hotkey('enter')
+        Popen('C:/Users/golal/AppData/Local/Discord/Update.exe --processStart Discord.exe')
     if('Redes,BtnD' in deck):
         webbrowser.open('https://campus.uvq.edu.ar/')
     if('Redes,BtnE' in deck):
@@ -182,13 +150,9 @@ def redes():
     if('Redes,BtnF' in deck):
         webbrowser.open('https://mail.enacom.gob.ar')
     if('Redes,BtnG' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('C:/Aplicaciones store/Whatsapp.lnk')
-        pyautogui.hotkey('enter')
+        startfile('C:/Aplicaciones store/Whatsapp.lnk')
     if('Redes,BtnH' in deck):
-        pyautogui.hotkey('win', 'r')
-        pyautogui.write('C:/Users/golal/AppData/Roaming/Telegram Desktop/Telegram.exe')
-        pyautogui.hotkey('enter')
+        Popen('C:/Users/golal/AppData/Roaming/Telegram Desktop/Telegram.exe')
     if('Redes,BtnI' in deck):
         webbrowser.open('https://plataforma.coderhouse.com/ingresar')
     if('Redes,btnJ' in deck):
