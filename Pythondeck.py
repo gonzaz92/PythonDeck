@@ -7,6 +7,20 @@ import win32console
 import win32gui
 from subprocess import Popen
 from os import startfile
+from obswebsocket import obsws, requests
+
+def escena(a):
+    client = obsws('localhost', 4455, '')
+    client.connect()
+    escena = a
+    client.call(requests.SetCurrentProgramScene(sceneName=escena))
+    client.disconnect()
+
+def comando(a):
+    try:
+        escena(a)
+    except:
+        print('No funciona')
 
 #Oculta el shell de pytho al abrir el script
 ventana = win32console.GetConsoleWindow()
@@ -30,21 +44,21 @@ def escritorio():
     if('Escritorio,BtnB' in deck):
         pyautogui.hotkey('alt', 'r')
     if('Escritorio,BtnC' in deck):
-        Popen('C:/Users/golal/AppData/Local/Programs/Microsoft VS Code/Code.exe')
+        Popen('"C:/Program Files/TeamViewer/TeamViewer.exe"', shell=True)
     if('Escritorio,BtnD' in deck):
-        Popen('C:/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32/EpicGamesLauncher.exe')
+        Popen('C:/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32/EpicGamesLauncher.exe', shell=True)
     if('Escritorio,BtnE' in deck):
-        Popen('C:/Program Files (x86)/Steam/steam.exe')
+        Popen('C:/Program Files (x86)/Steam/steam.exe', shell=True)
     if('Escritorio,BtnF' in deck):
-        Popen('C:/Users/golal/AppData/Local/Amazon Games/App/Amazon Games.exe')
+        Popen('C:/Users/golal/AppData/Local/Amazon Games/App/Amazon Games.exe', shell=True)
     if('Escritorio,BtnG' in deck):
-        Popen('C:/Program Files/LibreOffice/program/soffice.exe')
+        Popen('C:/Program Files/LibreOffice/program/soffice.exe', shell=True)
     if('Escritorio,BtnH' in deck):
-        Popen('"D:/Riot Games/Riot Client/RiotClientServices.exe" --launch-product=league_of_legends --launch-patchline=live')
+        Popen('"D:/Riot Games/Riot Client/RiotClientServices.exe" --launch-product=league_of_legends --launch-patchline=live', shell=True)
     if('Escritorio,BtnI' in deck):
-        Popen('C:/Program Files/MySQL/MySQL Workbench 8.0/MySQLWorkbench.exe')
+        Popen('C:/Program Files/MySQL/MySQL Workbench 8.0/MySQLWorkbench.exe', shell=True)
     if('Escritorio,btnJ' in deck):
-        Popen('Notepad.exe')
+        Popen('Notepad.exe', shell=True)
     if('Escritorio,but' in deck):
         pyautogui.hotkey('volumemute')
     if('Escritorio,izq' in deck):
@@ -54,21 +68,21 @@ def escritorio():
 
 def edicion():
     if('Edicion,BtnA' in deck):
-        Popen('C:/Program Files/GIMP 2/bin/gimp-2.10.exe')
+        Popen('C:/Program Files/GIMP 2/bin/gimp-2.10.exe', shell=True)
     if('Edicion,BtnB' in deck):
-        Popen('C:/Program Files/Blackmagic Design/DaVinci Resolve/Resolve.exe')
+        Popen('C:/Program Files/Blackmagic Design/DaVinci Resolve/Resolve.exe', shell=True)
     if('Edicion,BtnC' in deck):
-        Popen('C:/Program Files/REAPER (x64)/reaper.exe')
+        Popen('C:/Program Files/REAPER (x64)/reaper.exe', shell=True)
     if('Edicion,BtnD' in deck):
-        Popen('C:/Program Files/Inkscape/bin/inkscape.exe')
+        Popen('C:/Program Files/Inkscape/bin/inkscape.exe', shell=True)
     if('Edicion,BtnE' in deck):
-        Popen('C:/Program Files/darktable/bin/darktable.exe')
+        Popen('C:/Program Files/darktable/bin/darktable.exe', shell=True)
     if('Edicion,BtnF' in deck):
-        Popen('C:/Program Files/Krita (x64)/bin/krita.exe')
+        Popen('C:/Program Files/Krita (x64)/bin/krita.exe', shell=True)
     if('Edicion,BtnG' in deck):
         webbrowser.open('https://www.ilovepdf.com/es')
     if('Edicion,BtnH' in deck):
-        Popen('F:/LDPlayer/LDPlayer9/dnplayer.exe')
+        Popen('D:/LDPlayer/LDPlayer9/dnplayer.exe', shell=True)
     if('Edicion,BtnI' in deck):
         pyautogui.hotkey('f15')
     if('Edicion,btnJ' in deck):
@@ -82,21 +96,21 @@ def edicion():
 
 def obs():
     if('OBS,BtnA' in deck):
-        pyautogui.hotkey('f13')
+        comando('Apertura')
     if('OBS,BtnB' in deck):
-        pyautogui.hotkey('f14')
+        comando('League of Legend')
     if('OBS,BtnC' in deck):
-        pyautogui.hotkey('f15')
+        comando('LOL')
     if('OBS,BtnD' in deck):
-        pyautogui.hotkey('f16')
+        comando('Cam')
     if('OBS,BtnE' in deck):
-        pyautogui.hotkey('f17')
+        comando('Juegos Varios')
     if('OBS,BtnF' in deck):
-        pyautogui.hotkey('f18')
+        comando('Navegador')
     if('OBS,BtnG' in deck):
-        pyautogui.hotkey('f19')
+        comando('Pantalla')
     if('OBS,BtnH' in deck):
-        pyautogui.hotkey('f20')
+        comando('Celular')
     if('OBS,BtnI' in deck):
         pyautogui.hotkey('f21')
     if('OBS,btnJ' in deck):
@@ -136,13 +150,43 @@ def streaming():
     if('Streaming,der' in deck):
         pyautogui.hotkey('volumeup')
 
+def programacion():
+    if('Programacion,BtnA' in deck):
+        pyautogui.hotkey('ctrl', 'shift','e')
+    if('Programacion,BtnB' in deck):
+        pyautogui.hotkey('ctrl', 'b')
+    if('Programacion,BtnC' in deck):
+        pyautogui.hotkey('ctrl', 'h')
+    if('Programacion,BtnD' in deck):
+        pyautogui.hotkey('ctrl', 'shift', 'x')
+    if('Programacion,BtnE' in deck):
+        pyautogui.hotkey('ctrl', 'win', 'alt', 'n')
+    if('Programacion,BtnF' in deck):
+        pyautogui.hotkey('ctrl', 'shift', 'd')
+    if('Programacion,BtnG' in deck):
+        pyautogui.hotkey('ctrl', 'k')
+        pyautogui.hotkey('ctrl', 'c')
+    if('Programacion,BtnH' in deck):
+        pyautogui.hotkey('ctrl', 'k')
+        pyautogui.hotkey('ctrl', 'u')
+    if('Programacion,BtnI' in deck):
+        Popen('C:/Program Files (x86)/Thonny/thonny.exe', shell=True)
+    if('Programacion,btnJ' in deck):
+        Popen('C:/Users/golal/AppData/Local/Programs/Microsoft VS Code/Code.exe', shell=True)
+    if('Programacion,but' in deck):
+        Popen('C:/Program Files/Git/git-bash.exe', shell=True)
+    if('Programacion,izq' in deck):
+        pyautogui.hotkey('ctrl', 'k')
+    if('Programacion,der' in deck):
+        pyautogui.hotkey('ctrl', 'o')
+
 def redes():
     if('Redes,BtnA' in deck):
         webbrowser.open('https://gmail.com/')
     if('Redes,BtnB' in deck):
         webbrowser.open('https://www.facebook.com/')
     if('Redes,BtnC' in deck):
-        Popen('C:/Users/golal/AppData/Local/Discord/Update.exe --processStart Discord.exe')
+        Popen('C:/Users/golal/AppData/Local/Discord/Update.exe --processStart Discord.exe', shell=True)
     if('Redes,BtnD' in deck):
         webbrowser.open('https://campus.uvq.edu.ar/')
     if('Redes,BtnE' in deck):
@@ -152,7 +196,7 @@ def redes():
     if('Redes,BtnG' in deck):
         startfile('C:/Aplicaciones store/Whatsapp.lnk')
     if('Redes,BtnH' in deck):
-        Popen('C:/Users/golal/AppData/Roaming/Telegram Desktop/Telegram.exe')
+        Popen('C:/Users/golal/AppData/Roaming/Telegram Desktop/Telegram.exe', shell=True)
     if('Redes,BtnI' in deck):
         webbrowser.open('https://plataforma.coderhouse.com/ingresar')
     if('Redes,btnJ' in deck):
@@ -170,4 +214,5 @@ while True:
     edicion()
     obs()
     streaming()
+    programacion()
     redes()
